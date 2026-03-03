@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024年前端开发趋势分析 | 小柚Sleepy的博客</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+                <span class="fa fa-code mr-2"></span>
+                小柚Sleepy
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="font-medium hover:text-primary transition-colors">首页</a>
+                <a href="index.html#projects" class="font-medium hover:text-primary transition-colors">项目</a>
+                <a href="index.html#blog" class="font-medium hover:text-primary transition-colors">博客</a>
+                <a href="index.html#about" class="font-medium hover:text-primary transition-colors">关于我</a>
+            </div>
+            <button class="md:hidden text-dark" id="menu-toggle">
+                <span class="fa fa-bars text-xl"></span>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden bg-white shadow-md absolute w-full left-0 top-full transform -translate-y-full opacity-0 invisible transition-all duration-300" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html#home" class="font-medium hover:text-primary transition-colors py-2">首页</a>
+                <a href="index.html#projects" class="font-medium hover:text-primary transition-colors py-2">项目</a>
+                <a href="index.html#blog" class="font-medium hover:text-primary transition-colors py-2">博客</a>
+                <a href="index.html#about" class="font-medium hover:text-primary transition-colors py-2">关于我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 博客文章详情 -->
+    <section class="pt-32 pb-16 px-4">
+        <div class="container mx-auto max-w-3xl">
+            <div class="mb-8">
+                <div class="flex items-center text-gray-500 text-sm mb-4">
+                    <span class="fa fa-calendar-o mr-2"></span>
+                    2026年3月1日
+                    <span class="mx-2">|</span>
+                    <span class="fa fa-tag mr-2"></span>
+                    <a href="#" class="hover:text-primary transition-colors">虚幻引擎</a>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-6">虚幻引擎技术深度解析与实践</h1>
+                <div class="relative h-64 md:h-80 bg-gray-200 rounded-xl overflow-hidden mb-8">
+                    <img src="image/Ue.jpg" alt="博客封面" class="w-full h-full object-cover">
+                </div>
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-700 mb-6">
+                        虚幻引擎（Unreal Engine）是当今最强大的游戏开发引擎之一，被广泛应用于游戏开发、虚拟现实、增强现实等领域。本文将深入探讨虚幻引擎的核心技术、开发流程以及最佳实践，帮助开发者更好地理解和应用这一强大的工具。
+                    </p>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">1. 虚幻引擎的核心架构</h2>
+                    <p class="mb-4">
+                        虚幻引擎采用模块化架构设计，主要包括渲染系统、物理引擎、音频系统、AI系统等核心组件。这种架构使得引擎具有高度的可扩展性和灵活性，能够满足各种复杂项目的需求。
+                    </p>
+                    <p class="mb-4">
+                        核心架构组件包括：
+                    </p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>渲染系统：基于DirectX和Vulkan，支持实时光线追踪和全局光照</li>
+                        <li>物理引擎：集成PhysX，支持刚体动力学和碰撞检测</li>
+                        <li>音频系统：支持3D音频和空间音效</li>
+                        <li>AI系统：包括行为树和环境查询系统</li>
+                        <li>蓝图系统：可视化编程工具，降低开发门槛</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">2. C++与蓝图的协同开发</h2>
+                    <p class="mb-4">
+                        虚幻引擎支持C++和蓝图两种开发方式，它们各有优势，可以协同工作。C++提供高性能和底层控制，而蓝图则提供直观的可视化编程体验。
+                    </p>
+                    <p class="mb-4">
+                        最佳实践建议：
+                    </p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>核心系统和性能关键部分使用C++开发</li>
+                        <li>游戏逻辑和关卡设计使用蓝图实现</li>
+                        <li>使用C++创建自定义蓝图节点，扩展蓝图功能</li>
+                        <li>合理使用蓝图接口（Interfaces）实现模块化设计</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">3. 性能优化策略</h2>
+                    <p class="mb-4">
+                        性能优化是虚幻引擎开发中的重要环节，直接影响游戏的流畅度和用户体验。虚幻引擎提供了多种工具和技术来帮助开发者优化性能。
+                    </p>
+                    <p class="mb-4">
+                        主要的性能优化策略包括：
+                    </p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>LOD（Level of Detail）系统：根据距离调整模型细节</li>
+                        <li>光照优化：合理使用静态光照和动态光照</li>
+                        <li>材质和纹理优化：使用适当的纹理分辨率和压缩格式</li>
+                        <li>物理计算优化：合理设置物理碰撞和模拟参数</li>
+                        <li>蓝图性能：避免复杂的蓝图逻辑和过多的节点</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">4. 在线子系统与多人游戏开发</h2>
+                    <p class="mb-4">
+                        虚幻引擎的在线子系统（Online Subsystem）为多人游戏开发提供了强大的支持，包括会话管理、匹配系统和语音聊天等功能。
+                    </p>
+                    <p class="mb-4">
+                        在线子系统的主要功能：
+                    </p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>会话管理：创建和加入游戏会话</li>
+                        <li>匹配系统：基于玩家技能和偏好进行匹配</li>
+                        <li>语音聊天：实时语音通信</li>
+                        <li>成就系统：跟踪和奖励玩家成就</li>
+                        <li>排行榜：显示玩家排名</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">5. 虚拟现实与增强现实开发</h2>
+                    <p class="mb-4">
+                        虚幻引擎在VR和AR开发方面具有强大的优势，提供了专门的工具和功能来支持沉浸式体验的创建。
+                    </p>
+                    <p class="mb-4">
+                        VR/AR开发的关键技术：
+                    </p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>立体渲染：支持双眼视差效果</li>
+                        <li>头部追踪：实时跟踪用户头部位置和方向</li>
+                        <li>手部追踪：支持手势识别和交互</li>
+                        <li>空间音频：提供3D音频体验</li>
+                        <li>性能优化：确保VR体验的流畅度</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mt-8 mb-4">结论</h2>
+                    <p class="mb-4">
+                        虚幻引擎是一个功能强大、灵活性高的游戏开发工具，它不仅适用于游戏开发，还可以应用于建筑可视化、影视制作、教育培训等多个领域。掌握虚幻引擎的核心技术和最佳实践，对于开发者来说具有重要意义。
+                    </p>
+                    <p class="mb-4">
+                        随着技术的不断发展，虚幻引擎也在持续演进，引入了实时光线追踪、机器学习等前沿技术。作为开发者，我们需要不断学习和探索，才能充分发挥虚幻引擎的潜力，创造出更加精彩的交互式体验。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 文章导航 -->
+            <div class="border-t border-gray-200 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div class="flex items-center">
+                        <span class="fa fa-arrow-left mr-2 text-primary"></span>
+                        <a href="#" class="text-primary hover:underline">上一篇文章</a>
+                    </div>
+                    <div class="flex items-center">
+                        <a href="#" class="text-primary hover:underline">下一篇文章</a>
+                        <span class="fa fa-arrow-right ml-2 text-primary"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">小柚Sleepy</h3>
+                    <p class="text-gray-400">个人博客 & 作品集</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="fa fa-github text-xl"></span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="fa fa-twitter text-xl"></span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="fa fa-linkedin text-xl"></span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="fa fa-envelope text-xl"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 小柚Sleepy. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow');
+            }
+        });
+
+        // 移动端菜单
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('invisible')) {
+                mobileMenu.classList.remove('invisible', 'opacity-0', '-translate-y-full');
+                mobileMenu.classList.add('visible', 'opacity-100', 'translate-y-0');
+            } else {
+                mobileMenu.classList.add('invisible', 'opacity-0', '-translate-y-full');
+                mobileMenu.classList.remove('visible', 'opacity-100', 'translate-y-0');
+            }
+        });
+    </script>
+</body>
+</html>
